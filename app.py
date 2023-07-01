@@ -6,6 +6,10 @@ from pytz import timezone
 from linebot import LineBotApi
 from linebot.models import TextSendMessage
 import requests
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 
 app = Flask(__name__)
@@ -26,7 +30,7 @@ def send_line_message(message, access_token):
     return response.status_code
 
 
-access_token = "laiP602JebfVmaQKc8ldcymrZZyHplrNJQie7mEfI6F"
+access_token = os.getenv("API_KEY")
 
 
 @app.route("/set_reminder", methods=["POST"])
