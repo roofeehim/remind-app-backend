@@ -35,6 +35,7 @@ access_token = os.getenv("API_KEY")
 
 @app.route("/set_reminder", methods=["POST"])
 def set_reminder():
+    send_line_message("成功", access_token)
     time = request.json["time"]
     hour, minute = map(int, time.split(":"))
     target_time = datetime.now().replace(
